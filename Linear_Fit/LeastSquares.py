@@ -39,6 +39,10 @@ class LeastSquares:
         predict_y = np.dot(data_matrix, x_bar) #Step 5
         return predict_y, x_bar, inv_matrix
 
+    def coef(self,data_matrix,yval,noise_cov=None):
+        predict_y,x_bar,inv_matrix = self.ymodel(data_matrix,yval)
+        return x_bar
+             
     #args extended data_matrix (with extra x points added), y points, index where actual data begins in data_matrix_extend
     #returns y_model, x_bar (parameters for fit) and error covariance                   
     def ymodel_extend(self,data_matrix_extend,yval,index_begin_x):
